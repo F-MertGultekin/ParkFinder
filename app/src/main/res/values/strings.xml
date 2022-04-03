@@ -1,0 +1,441 @@
+<resources>
+    <string name="app_name">Park Finder</string>
+    <string name="dropped_pin">Dropped Pin</string>
+
+    <string-array name="cities">
+        <item>İzmir</item>
+    </string-array>
+    <string-array name="emptyNeighbourhoodList">
+        <item>Mahalle</item>
+    </string-array>
+    <string-array name="emptyStreetList">
+        <item>Sokak</item>
+    </string-array>
+
+    <string-array name="districts">
+        <item>İlçe</item>
+        <item>Aliağa</item>
+        <item>Balçova</item>
+        <item>Bayındır</item>
+        <item>Bayraklı</item>
+        <item>Bergama</item>
+        <item>Beydağ</item>
+        <item>Bornova</item>
+        <item>Buca</item>
+        <item>Çeşme</item>
+        <item>Çiğli</item>
+        <item>Dikili</item>
+        <item>Foça</item>
+        <item>Gaziemir</item>
+        <item>Güzelbahçe</item>
+        <item>Karabağlar</item>
+        <item>Karaburun</item>
+        <item>Karşıyaka</item>
+        <item>Kemalpaşa</item>
+        <item>Kınık</item>
+        <item>Kiraz</item>
+        <item>Konak</item>
+        <item>Menderes</item>
+        <item>Menemen</item>
+        <item>Narlıdere</item>
+        <item>Ödemiş</item>
+        <item>Seferihisar</item>
+        <item>Selçuk</item>
+        <item>Tire</item>
+        <item>Torbalı</item>
+        <item>Urla</item>
+    </string-array>
+    <string-array name="Aliağa">
+        <item>Mahalle</item>
+        <item>Aşağışakran</item>
+        <item>Atatürk</item>
+        <item>B.Hayrettin Paşa </item>
+        <item>Bahçedere </item>
+        <item>Bozköy </item>
+        <item>Çakmaklı </item>
+        <item>Çaltılıdere </item>
+        <item>Çıtak</item>
+        <item>Çoraklar</item>
+        <item>Fatih</item>
+        <item>Güzelhisar</item>
+        <item>Hacıömerli</item>
+        <item>Horozgediği</item>
+        <item>Kalabak</item>
+        <item>Kapukaya</item>
+        <item>Karaköy</item>
+        <item>Karakuzu</item>
+        <item>Kazım Dirik</item>
+        <item>Kurtuluş</item>
+        <item>Kültür</item>
+        <item>Mimar Sinan</item>
+        <item>Samurlu</item>
+        <item>Siteler</item>
+        <item>Şehitkemal</item>
+        <item>Uzunhasanlar</item>
+        <item>Yalı</item>
+        <item>Yeni</item>
+        <item>Yenişakran</item>
+        <item>Yukarı Şehitkemal</item>
+        <item>Yüksekköy</item>
+
+    </string-array>
+    <string-array name="Balçova">
+        <item>Bahçelerarası</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Bayındır">
+        <item>Alankıyı</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+
+    <string-array name="Bayraklı">
+        <item>75. Yıl</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Bergama">
+        <item>Ahmetbeyler</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Beydağ">
+        <item>Adaküre</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Bornova">
+        <item>Mahelle</item>
+        <item>Atatürk</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Buca">
+        <item>Mahalle</item>
+        <item>29 Ekim</item>
+        <item>Adatepe</item>
+        <item>Akıncılar</item>
+        <item>Atatürk</item>
+        <item>Aydoğdu</item>
+        <item>Barıs</item>
+        <item>Belenbaşı </item>
+        <item>Buca Koop</item>
+        <item>Cumhuriyet</item>
+        <item>Çağdaş</item>
+        <item>Çaldıran</item>
+        <item>Çamlık</item>
+        <item>Çamlıkule</item>
+        <item>Çamlıpınar</item>
+        <item>Dicle</item>
+        <item>Doğancılar</item>
+        <item>Dumlupınar</item>
+        <item>Efeler</item>
+        <item>Fırat</item>
+        <item>Gaziler</item>
+        <item>Göksu</item>
+        <item>Güven</item>
+        <item>Hürriyet</item>
+        <item>İnkılap</item>
+        <item>İnönü</item>
+        <item>İzkent</item>
+        <item>Karacaağaç</item>
+        <item>Karanfil</item>
+        <item>Kaynaklar Merkez</item>
+        <item>Kırklar</item>
+        <item>Kozağaç</item>
+        <item>Kuruçeşme</item>
+        <item>Laleli</item>
+        <item>Menderes</item>
+        <item>Murathan</item>
+        <item>Mustafa Kemal</item>
+        <item>Seyhan</item>
+        <item>Şirinkapı</item>
+        <item>Ufuk</item>
+        <item>Vali Rahmi Bey</item>
+        <item>Yaylacık</item>
+        <item>Yenigün</item>
+        <item>Yeşilbağlar</item>
+        <item>Yıldızxx</item>
+        <item>Yıldızlar</item>
+        <item>Yiğitler</item>
+        <item>Zafer</item>
+    </string-array>
+    <string-array name="Çeşme">
+        <item>Mahelle</item>
+        <item>16 Eylül</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Ciğli">
+        <item>Mahelle</item>
+        <item>Ahmet Efendi</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Dikili">
+        <item>Bademli</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Foça">
+        <item>Atatürk</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Gaziemir">
+        <item>Aktepe</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Güzelbahçe">
+        <item>Atatürk</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Karabağlar">
+        <item>Abdi İpekçi</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Karaburun">
+        <item>Anbarseki</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Karşıyaka">
+        <item>Aksoy</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Kemalpaşa">
+        <item>Akalan</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Kınık">
+        <item>Arpadere</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Kiraz">
+        <item>Ahmetler</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Konak">
+        <item>1.Kadriye</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Menderes">
+        <item>Ahmetbeyli</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Menemen">
+        <item>29 Ekim</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Narlıdere">
+        <item>2. İnönü</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Ödemiş">
+        <item>Akıncılar</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Seferihisar">
+        <item>Atatürk</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Selçuk">
+        <item>14 Mayıs</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Tire">
+        <item>4 Eylül</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Torbalı">
+        <item>19 Mayıs</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Urla">
+        <item>Altıntaş</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Buca_Atatürk">
+        <item>Sokak</item>
+        <item>201/5</item>
+        <item>201/6</item>
+        <item>201/7</item>
+        <item>201/8</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string-array name="Buca_Kuruçeşme">
+        <item>Sokak</item>
+        <item>203/1</item>
+        <item>203/6</item>
+        <item>203/3</item>
+        <item>203/25</item>
+        <item>Xx</item>
+        <item>Xx</item>
+        <item>Xx</item>
+
+    </string-array>
+    <string name="title_activity_maps">MapsActivity</string>
+
+
+</resources>
