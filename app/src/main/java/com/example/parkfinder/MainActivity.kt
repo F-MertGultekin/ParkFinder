@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         ArrayAdapter.createFromResource(
             this,
             R.array.cities,
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_item_customize
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
         ArrayAdapter.createFromResource(
             this,
             R.array.districts,
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_item_customize
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
                 district, "array",
                 packageName
             ),
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_item_customize
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
         ArrayAdapter.createFromResource(
             this,
             R.array.emptyNeighbourhoodList,
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_item_customize
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
                 neighbourhood, "array",
                 packageName
             ),
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_item_customize
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -167,7 +167,7 @@ class MainActivity : AppCompatActivity() {
         ArrayAdapter.createFromResource(
             this,
             R.array.emptyStreetList,
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_item_customize
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

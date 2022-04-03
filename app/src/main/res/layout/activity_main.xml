@@ -4,67 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_500"
+    android:background="@color/dark_blue"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text="Select The Location"
-        android:textColor="@color/white"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/city_spinner"
+        android:text="Select The Location"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/search_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.147">
 
     </TextView>
 
-    <Spinner
-        android:id="@+id/city_spinner"
-        android:layout_width="405dp"
-        android:layout_height="21dp"
-        android:layout_marginBottom="80dp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/district_spinner"
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/spinner_background"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.917" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintVertical_bias="0.600">
 
-    <Spinner
-        android:id="@+id/district_spinner"
-        android:layout_width="405dp"
-        android:layout_height="21dp"
-        android:layout_marginBottom="80dp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/neighbourhood_spinner"
+        <Spinner
+            android:id="@+id/city_spinner"
+            style="@style/Widget.AppCompat.Spinner"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:textColor="@color/black" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:background="@drawable/spinner_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight=".28"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintVertical_bias="0.700">
 
-    <Spinner
-        android:id="@+id/neighbourhood_spinner"
-        android:layout_width="405dp"
-        android:layout_height="21dp"
-        android:layout_marginBottom="72dp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/street_spinner"
+        <Spinner
+            android:id="@+id/district_spinner"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight=".28"
+        android:background="@drawable/spinner_background"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintVertical_bias="0.800">
 
-    <Spinner
-        android:id="@+id/street_spinner"
-        android:layout_width="405dp"
-        android:layout_height="21dp"
-        android:layout_marginBottom="60dp"
-        android:textColor="@color/white"
+        <Spinner
+            android:id="@+id/neighbourhood_spinner"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight=".28"
+        android:background="@drawable/spinner_background"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/search_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintVertical_bias="0.900">
+
+        <Spinner
+            android:id="@+id/street_spinner"
+            android:layout_width="300dp"
+            android:gravity="center"
+            android:layout_height="30dp"
+            android:textColor="@color/white"
+            app:layout_constraintHorizontal_bias="1.0" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/search_button"
@@ -73,7 +128,7 @@
         android:layout_marginBottom="108dp"
         android:text="Search"
         android:textColor="@color/white"
-        android:background="@color/purple_200"
+        app:backgroundTint="@color/light_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
