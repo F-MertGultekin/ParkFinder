@@ -14,8 +14,12 @@ class InformationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_information)
 
-        val informationContent = findViewById<TextView>(R.id.informationTV)
-        informationContent.text =" INFORMATION SCREEN "
+        val informationContent = findViewById<TextView>(R.id.InfoScreen)
+        val informationTV = findViewById<TextView>(R.id.informationTV)
+        val whatisthisapp = findViewById<TextView>(R.id.whatisthisapp)
+        val whatisthisappexplanation = findViewById<TextView>(R.id.whatisthisappexplanation)
+        val howtousethisapp = findViewById<TextView>(R.id.howtousethisapp)
+        val howtousethisappexplanation = findViewById<TextView>(R.id.howtousethisappexplanation)
 
     }
 

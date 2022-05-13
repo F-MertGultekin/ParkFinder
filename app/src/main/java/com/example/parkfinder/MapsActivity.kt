@@ -66,6 +66,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 googleMap.moveCamera(CameraUpdateFactory.newLatLng(location))
                 googleMap.animateCamera(CameraUpdateFactory.zoomTo(15F))
                 googleMap.addMarker(MarkerOptions().position(location).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+                Log.d(TAG, "latitude $address.latitude")
+                Log.d(TAG, "longitude $address.longitude")
+                Log.d(TAG, "location $location")
+
             } else {
                 Log.d(TAG, "No places found for string $placeName")
 
