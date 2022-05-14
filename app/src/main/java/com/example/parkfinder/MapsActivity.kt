@@ -1,12 +1,16 @@
 package com.example.parkfinder
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
+import android.os.StrictMode
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.example.parkfinder.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -16,14 +20,29 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import java.io.IOException
+import java.sql.*
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private val TAG = "MyActivity"
+    private var connection: Connection? = null
     private lateinit var binding: ActivityMapsBinding
+
+    companion object {
+
+        private const val ip = "smartcitydeu2.database.windows.net"
+        private const val port = "1433"
+        private const val Classes = "net.sourceforge.jtds.jdbc.Driver"
+        private const val database = "SmartCityDB"
+        private const val username = "SmartCityAdmin"
+        private const val password = "Smart_City_Admin"
+        private const val url = "jdbc:jtds:sqlserver://" + ip + ":" + port + "/" + database + ";ssl=require"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        connectToDB()
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -52,6 +71,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val neighbourhood = intent.getStringExtra("neighbourhood")
         val district = intent.getStringExtra("district")
         val address = "$street $neighbourhood $district"
+        Log.d(TAG,  "address $address")
         showMapForPlace(address,mMap)
     }
 
@@ -69,7 +89,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.d(TAG, "latitude $address.latitude")
                 Log.d(TAG, "longitude $address.longitude")
                 Log.d(TAG, "location $location")
-
+                Log.d(TAG,  "place name $placeName")
+                query(address.latitude,address.longitude)
             } else {
                 Log.d(TAG, "No places found for string $placeName")
 
@@ -102,6 +123,60 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             true
         }
         else -> super.onOptionsItemSelected(item)
+    }
+    private fun query(latitude: Double, longitude: Double) {
+        var location = "$latitude,$longitude"
+
+        if (connection != null) {
+            var statement: Statement? = null
+            try {
+                statement = connection!!.createStatement()
+                //val resultSet: ResultSet = statement.executeQuery("SELECT isParkingAvailable FROM [dbo].[ParkPlaces]")
+                val resultSet: ResultSet = statement.executeQuery("SELECT isParkingAvailable FROM [dbo].[ParkPlaces] WHERE location = '$location'")
+
+                Log.d("Result",location)
+                while (resultSet.next()) {
+                    Thread.sleep(100)
+                    //Log.d("Result",resultSet.getString(1) + " - " +resultSet.getString(2)+ " - " +resultSet.getString(3)+ " - " +resultSet.getString(4)+ " - " +resultSet.getByte(5).toString()+ " - " + resultSet.getString(6))
+                    Log.d("Result",resultSet.getString(1))
+                }
+            } catch (e: SQLException) {
+                e.printStackTrace()
+                Log.d("Hata","Hata")
+            }
+        } else {
+
+        }
+    }
+    private fun connectToDB(){
+
+        //GlobalScope.launch(Dispatchers.IO) {
+        //}
+
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.INTERNET),
+            PackageManager.PERMISSION_GRANTED
+        )
+
+        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+        StrictMode.setThreadPolicy(policy)
+        try {
+            Class.forName(Classes)
+            connection = DriverManager.getConnection(
+                url,
+                username,
+                password
+            )
+            Log.d("Succes","Succes")
+
+        } catch (e: ClassNotFoundException) {
+            e.printStackTrace()
+            Log.d("Error","Error")
+        } catch (e: SQLException) {
+            e.printStackTrace()
+            Log.d("Failure","Failure")
+        }
     }
 }
 

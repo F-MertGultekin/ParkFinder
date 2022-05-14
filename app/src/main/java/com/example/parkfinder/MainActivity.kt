@@ -1,13 +1,17 @@
 package com.example.parkfinder
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.StrictMode
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -25,7 +29,11 @@ internal lateinit var district_spinner: Spinner
 internal lateinit var neighbourhood_spinner: Spinner
 internal lateinit var street_spinner: Spinner
 
+
 class MainActivity : AppCompatActivity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -69,8 +77,8 @@ class MainActivity : AppCompatActivity() {
 
 
                 if(neighbourhood != "Mahalle") {
-                    neighbourhood = selectedDistrictName+"_"+neighbourhood
                     selectedNeigbourhoodName=neighbourhood
+                    neighbourhood = selectedDistrictName+"_"+neighbourhood
                     streetAdapter(neighbourhood)
 
                 }
@@ -96,58 +104,17 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent(this, MapsActivity::class.java)
 
-            //connectToDB()
             intent.putExtra("street", selectedStreetName)
             intent.putExtra("neighbourhood", selectedNeigbourhoodName)
             intent.putExtra("district", selectedDistrictName)
+            intent.putExtra("connection", selectedDistrictName)
             startActivity(intent)
             finish()
         }
     }
 
-    private fun connectToDB(){
-
-        //val coroutineExceptionHandler = CoroutineExceptionHandler{_, throwable ->
-        //    throwable.printStackTrace()
-        //}
-        GlobalScope.launch(Dispatchers.IO) {
-
-            val user = "SmartCityAdmin@smartcitydeu2"
-            val password = "Smart_City_Admin"
-            val port = "1433"
-            val server = "smartcitydeu2.database.windows.net"
-            val database = "SmartCityDB"
-            val encrypt = "true"
-            val trustServerCertificate = "false"
-            val hostNameInCertificate = "*.database.windows.net"
-            val loginTimeout = "30"
-            val sourceforge = "net.sourceforge.jtds.jdbc.Driver"
-            val mssql = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
 
 
-            //url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:1433;database=demo;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-
-            val url = "jdbc:sqlserver://$server:$port;database=$database;encrypt=$encrypt;trustServerCertificate=$trustServerCertificate;hostNameInCertificate=$hostNameInCertificate;loginTimeout=$loginTimeout;sslProtocol=TLSv1.2"
-
-
-            Class.forName(mssql)
-            var connection : Connection = DriverManager.getConnection(url,user,password)
-            var statement = connection?.createStatement()
-            val resultSet: ResultSet = statement!!.executeQuery("SELECT * FROM ParkPlaces")
-            while (resultSet.next()) {
-
-
-
-                // getting the value of the name column
-                val location = resultSet.getString("location")
-                val address = resultSet.getString("address")
-
-                Log.d("Main",location)
-                Log.d("Main",address)
-
-            }
-        }
-    }
     private fun cityAdapter(){
         ArrayAdapter.createFromResource(
             this,
