@@ -82,15 +82,29 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             if (addresses.isNotEmpty()) {
                 val address = addresses.first()
                 val location = LatLng(address.latitude,address.longitude)
+                val percent = query(address.latitude,address.longitude)
+                Log.d("oran", percent.toString())
                 googleMap.animateCamera(CameraUpdateFactory.newLatLng(location))
                 googleMap.moveCamera(CameraUpdateFactory.newLatLng(location))
                 googleMap.animateCamera(CameraUpdateFactory.zoomTo(15F))
-                googleMap.addMarker(MarkerOptions().position(location).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+
+                if (percent >= 50){
+                    googleMap.addMarker(MarkerOptions().position(location).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+
+                }
+                else if ( percent <50 && percent >= 20){
+                    googleMap.addMarker(MarkerOptions().position(location).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)))
+
+                }
+                else {
+                    googleMap.addMarker(MarkerOptions().position(location).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))
+
+                }
                 Log.d(TAG, "latitude $address.latitude")
                 Log.d(TAG, "longitude $address.longitude")
                 Log.d(TAG, "location $location")
                 Log.d(TAG,  "place name $placeName")
-                query(address.latitude,address.longitude)
+
             } else {
                 Log.d(TAG, "No places found for string $placeName")
 
@@ -124,9 +138,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         else -> super.onOptionsItemSelected(item)
     }
-    private fun query(latitude: Double, longitude: Double) {
+    private fun query(latitude: Double, longitude: Double) : Int {
         var location = "$latitude,$longitude"
-
+        var parkingAvailableCount = 0
+        var parkingNotAvailableCount = 0
+        var percent = 0.0
         if (connection != null) {
             var statement: Statement? = null
             try {
@@ -137,9 +153,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.d("Result",location)
                 while (resultSet.next()) {
                     Thread.sleep(100)
-                    //Log.d("Result",resultSet.getString(1) + " - " +resultSet.getString(2)+ " - " +resultSet.getString(3)+ " - " +resultSet.getString(4)+ " - " +resultSet.getByte(5).toString()+ " - " + resultSet.getString(6))
                     Log.d("Result",resultSet.getString(1))
+
+                    if(resultSet.getString(1) == "0"){
+                        parkingNotAvailableCount++
+                    }
+                    else{
+                        parkingAvailableCount++
+                    }
                 }
+                //%50 den büyükse Yeşil
+                //%20 ile 50 arası Sarı
+                //%20den az ise kırmızı
+
+                percent = (parkingAvailableCount.toDouble() / (parkingAvailableCount.toDouble() + parkingNotAvailableCount.toDouble())) * 100
+                Log.d("oran", parkingAvailableCount.toString())
+                Log.d("oran", parkingNotAvailableCount.toString())
+
+
+
             } catch (e: SQLException) {
                 e.printStackTrace()
                 Log.d("Hata","Hata")
@@ -147,6 +179,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         } else {
 
         }
+        return percent.toInt()
     }
     private fun connectToDB(){
 
